@@ -1,0 +1,35 @@
+<!-- templates/dashboard.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Personalized Virtual Assistant</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>Your Tasks</h2>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task.name }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Your Schedule</h2>
+    <ul>
+        {% for item in schedule %}
+        <li>{{ item.task }}: {{ item.start_time }} - {{ item.end_time }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Your Performance</h2>
+    <p>Tasks completed: {{ performance.tasks_completed }}</p>
+    <p>Total tasks: {{ performance.total_tasks }}</p>
+    <p>Time spent: {{ performance.time_spent }} hours</p>
+    <p>Productivity score: {{ performance.productivity_score }}%</p>
+    <h2>Recommendations for You</h2>
+    <ul>
+        {% for recommendation in recommendations %}
+        <li>{{ recommendation }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
